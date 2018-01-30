@@ -7,7 +7,17 @@ project(op3_tracker)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
+  message_generation
+  op3_action_module_msgs
+  robotis_controller_msgs
+  roslib
+  rospy
+  sensor_msgs
+  std_msgs
+  tf
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -66,7 +76,7 @@ find_package(catkin REQUIRED)
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   geometry_msgs#   op3_action_module_msgs#   robotis_controller_msgs#   sensor_msgs#   std_msgs
 # )
 
 ################################################
@@ -101,7 +111,7 @@ find_package(catkin REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES op3_tracker
-#  CATKIN_DEPENDS other_catkin_pkg
+#  CATKIN_DEPENDS geometry_msgs message_generation op3_action_module_msgs robotis_controller_msgs roslib rospy sensor_msgs std_msgs tf
 #  DEPENDS system_lib
 )
 
@@ -113,7 +123,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-# ${catkin_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
